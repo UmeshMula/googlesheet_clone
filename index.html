@@ -17,14 +17,15 @@
       <p>Home</p>
       <p>Tools</p>
       <p>Help</p>
+      <button id="download" onclick="downloadPage()">Download</button>
     </nav>
+    
     <header>
       <div class="block-num">A1</div>
       <span
         style="
           font-style: italic;
           font-family: Georgia, 'Times New Roman', Times, serif;
-          margin: 2px;
         "
         >fx
       </span>
@@ -50,6 +51,32 @@
       >
         format_align_right
       </div>
+      
+
+      <div
+      id="top-align"
+      class="material-icons"
+      onclick="activatevTextAlign(this)"
+    >
+      vertical_align_top
+    </div>
+    <div
+      id="middle-align"
+      class="material-icons"
+      onclick="activatevTextAlign(this)"
+    >
+    vertical_align_center
+    </div>
+    <div
+      id="bottom-align"
+      class="material-icons"
+      onclick="activatevTextAlign(this)"
+    >
+      vertical_align_bottom
+    </div>
+
+
+
       <div
         id="underline"
         class="material-icons"
@@ -117,8 +144,13 @@
         </select>
       </div>
     </header>
-    <main></main>
-
+    <footer class="foot">
+      
+  <button class="button" onclick="addNewSheet()">Add Sheet</button>
+  <div id="sheet-list" class="sheet-list"></div>
+    </footer>
+    <main>
+    </main>
     <script src="./script.js"></script>
   </body>
 </html>

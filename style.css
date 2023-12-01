@@ -3,10 +3,13 @@
     margin: 0%;
     font-family: Arial, Helvetica, sans-serif;
   }
+  span{
+    padding-right: 4px;
+  }
   nav {
     width: 100vw;
     height: 7vh;
-    background-color: rgb(43, 154, 43);
+    background-color:#00AC47;
     display: flex;
     align-items: center;
   }
@@ -18,7 +21,7 @@
     cursor: pointer;
   }
   nav > p:nth-child(3) {
-    color: green;
+    color: #00AC47;
     background-color: white;
     line-height: 48px;
     border-radius: 10px;
@@ -33,7 +36,6 @@
   .material-icons {
     margin-inline: 20px;
     padding: 2px;
-  
     cursor: pointer;
     border-radius: 4px;
     transition: all linear 0.25s;
@@ -43,6 +45,19 @@
   }
   .material-icons:hover {
     scale: 110%;
+  }
+  #download {
+    position: fixed;
+    /* top: 5px; */
+    right: 20px;
+    background-color: rgb(32, 29, 211);
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: small;
+    font-weight: 100;
+    border: none;
   }
   
   main {
@@ -107,4 +122,34 @@
     display: flex;
     align-items: center;
   }
-    
+ 
+
+  .material-icons {
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: 20px;
+  }
+  .foot {
+    display: flex;
+    align-items: center;
+  }
+  
+  .sheet-list {
+    display: flex;
+    margin-right: 10px; /* Adjust as needed */
+  }
+  
+  .button {
+    padding: 10px;
+    margin: 5px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #2980b9;
+  }
+  

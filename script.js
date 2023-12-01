@@ -9,6 +9,9 @@ const boldEle = document.getElementById("bold");
 const actualText = document.getElementsByClassName("actual-text")[0];
 const font_styles = document.getElementById("font-styles");
 const font_sizes = document.getElementById("font-sizes");
+const topAlignIcon = document.getElementById("top-align");
+const middleAlignIcon = document.getElementById("middle-align");
+const bottomAlignIcon = document.getElementById("bottom-align");
 var activeCell = null;
 const defaultStyling = {
   isBold: false,
@@ -189,6 +192,30 @@ function activateTextAlign(element) {
   }
 }
 
+
+
+
+function activatevTextAlign(element) {
+  element.classList.toggle("active");
+
+  if (element.id === "top-align") {
+    activeStyling.verticalAlign = "top";
+    activeCell.style.alignItems = "flex-start";
+  } else if (element.id === "middle-align") {
+    activeStyling.verticalAlign = "middle";
+    activeCell.style.alignItems = "center";
+  } else if (element.id === "bottom-align") {
+    activeStyling.verticalAlign = "bottom";
+    activeCell.style.alignItems = "flex-end";
+  }
+
+  // Reset horizontal alignment when changing vertical alignment
+  alignLeft.classList.remove("active");
+  alignCenter.classList.remove("active");
+  alignRight.classList.remove("active");
+}
+
+
 function changeTextColor(element) {
   const selectedColor = element.value;
 
@@ -210,4 +237,47 @@ function changeFontFam(element) {
   const selectedFam = element.value;
   activeStyling.fontStyle = selectedFam;
   activeCell.style.fontFamily = selectedFam;
+}
+function changeVerticalAlign(element) {
+  activeStyling.verticalAlign = element.value;
+  activeCell.style.alignItems = element.value;
+}
+
+// function addNewSheet() {
+//   const sheetsContainer = document.getElementsByTagName("main")[0];
+//   sheetsContainer.innerHTML = "";
+//   renderSheet();
+// }
+
+sheetCount=1;
+function addNewSheet() {
+  const sheetsContainer = document.getElementById("sheet-list");
+  const sheetButton = document.createElement("button");
+  sheetButton.classList.add("button");
+  sheetButton.textContent = `Sheet ${sheetCount}`;
+  sheetButton.onclick = function () {
+    changeSheet(sheetCount);
+  };
+  sheetsContainer.appendChild(sheetButton);
+
+  sheetCount++;
+
+  renderSheet();
+}
+
+
+
+
+function changeSheet(sheetNumber) {
+  // Add logic to handle sheet changes
+  console.log(`Switching to Sheet ${sheetNumber}`);
+}
+
+function downloadPage() {
+  const htmlContent = document.documentElement.outerHTML;
+  const blob = new Blob([htmlContent], { type: "text/html" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "google-sheet.html";
+  link.click();
 }
