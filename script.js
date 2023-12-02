@@ -69,7 +69,22 @@ function addRow(rowNum) {
           activeStyling = newCell.currentStyle;
         }
 
-        newCell.addEventListener("focus", changeId);
+        newCell.addEventListener("click", function () {
+          // Remove blue border from the previously active cell
+          if (activeCell !== null) {
+            activeCell.classList.remove("active-cell");
+          }
+
+          // Set the clicked cell as the active cell and add the blue border
+          activeCell = newCell;
+          activeCell.classList.add("active-cell");
+
+          // Update the styling and other information for the active cell
+          blockNum.innerHTML = activeCell.id;
+          activeStyling = activeCell.currentStyle;
+          renderStyles();
+        });
+
         newCell.addEventListener("keyup", changeActualText);
       }
 
@@ -78,6 +93,8 @@ function addRow(rowNum) {
   }
   mainEle.appendChild(newRow);
 }
+
+
 function changeActualText() {
   actualText.innerHTML = activeCell.innerHTML;
 }
@@ -243,13 +260,7 @@ function changeVerticalAlign(element) {
   activeCell.style.alignItems = element.value;
 }
 
-// function addNewSheet() {
-//   const sheetsContainer = document.getElementsByTagName("main")[0];
-//   sheetsContainer.innerHTML = "";
-//   renderSheet();
-// }
-
-sheetCount=1;
+let sheetCount=1;
 function addNewSheet() {
   const sheetsContainer = document.getElementById("sheet-list");
   const sheetButton = document.createElement("button");
@@ -268,8 +279,11 @@ function addNewSheet() {
 
 
 
+
+
+
+
 function changeSheet(sheetNumber) {
-  // Add logic to handle sheet changes
   console.log(`Switching to Sheet ${sheetNumber}`);
 }
 
